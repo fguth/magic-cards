@@ -1,0 +1,65 @@
+.--input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: var(--black);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  width: 100%;
+  padding: .625rem 1rem;
+  line-height: 1rem;
+  border-radius: 5rem;
+  box-shadow: 0 0 0 3px var(--dark-gray);
+  font-family: "FLArt Regular", Helvetica, Arial;
+  transition: box-shadow .1s ease-out, color .3s ease-out;
+
+  &-S {
+    font-size: 0.625rem;
+  }
+
+  &.--error {
+    color: #FA786E;
+  }
+
+  &::placeholder,
+  &::-webkit-input-placeholder {
+    color: var(--light-gray);
+    transition: color .2s ease-out;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 3px var(--gray);
+    cursor: pointer;
+
+    &::placeholder,
+    &::-webkit-input-placeholder {
+      color: var(--white);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px var(--gray);
+    outline: none;
+
+    &::placeholder,
+    &::-webkit-input-placeholder {
+      color: var(--gray);
+    }
+
+    &:hover { cursor: text; }
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .--input {
+    padding: .4rem .75rem;
+    width: 100%;
+  }
+
+  .--input-S {
+    padding: 0.55rem 0.76rem;
+    font-size: 0.525rem;
+  }
+}

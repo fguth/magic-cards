@@ -1,0 +1,96 @@
+.--size {
+
+  &-XL {
+    font-size: 3.125rem;
+    line-height: 110%;
+    letter-spacing: -0.05rem;
+    font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+  }
+
+  // 32px
+  &-L {
+    font-size: 1rem;
+    line-height: 100%;
+    letter-spacing: -0.0125rem;
+    font-family: "CashSans Medium", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+  }
+
+  // 18px
+  &-M {
+    font-size: 0.75rem;
+    line-height: 140%;
+    // letter-spacing: -0.0075rem;
+    font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+
+    &-medium {
+      font-family: "CashSans Medium", Helvetica, Arial, sans-serif;
+      font-weight: 520;
+    }
+  }
+
+  //14px
+  &-S {
+    font-size: 0.5rem;
+    line-height: 110%;
+    letter-spacing: -0.0125rem;
+    font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+
+    &-medium {
+      font-family: "CashSans Medium", Helvetica, Arial, sans-serif;
+      font-weight: 500;
+    }
+  }
+
+  &-XS {
+    font-size: 0.4rem;
+    line-height: 110%;
+    font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+
+    &-medium {
+      font-family: "CashSans Medium", Helvetica, Arial, sans-serif;
+      font-weight: 500;
+    }
+  }
+
+  &-button {
+    font-size: 0.625rem;
+    font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.0125rem;
+  }
+}
+
+// @media only screen and (max-width : 750px) {
+//   .--size {
+//     &-XL { font-size: 1.85rem; letter-spacing: -0.0125rem; line-height: 105%; }
+//     &-L { font-size: 1.125rem; }
+//     &-M { font-size: 0.525rem; }
+//     &-S { font-size: .425rem; line-height: 125%; }
+//     &-S-small { font-size: .425rem; }
+//     &-XS { font-size: .325rem; }
+
+//     &-button { font-size: 0.525rem; }
+//   }
+// }
+
+.--color {
+  &-dark-primary { color: var(--text-dark-primary); }
+  &-dark-secondary { color: var(--text-dark-secondary); }
+  &-dark-tertiary { color: var(--text-dark-tertiary); }
+  &-light-primary { color: var(--text-light-primary); }
+  &-light-secondary { color: var(--text-light-secondary); }
+  &-light-tertiary { color: var(--text-light-tertiary); }
+  &-error { color: var(--error); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}

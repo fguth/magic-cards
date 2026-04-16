@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "CashSans Regular";
+  src:
+    url("/assets/fonts/CashSans-Regular.woff2") format("woff2"),
+    url("/assets/fonts/CashSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CashSans Medium";
+  src:
+    url("/assets/fonts/CashSans-Medium.woff2") format("woff2"),
+    url("/assets/fonts/CashSans-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CashSans Bold";
+  src:
+    url("/assets/fonts/CashSans-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CashSans Semibold";
+  src:
+    url("/assets/fonts/CashSans-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CashSans Light";
+  src:
+    url("/assets/fonts/CashSans-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CashSans Mono";
+  src:
+    url("/assets/fonts/CashSansMono-Regular.woff2") format("woff2"),
+    url("/assets/fonts/CashSansMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+  color: var(--white);
+}

@@ -1,0 +1,212 @@
+:root {
+  --arcade-font-regular: "CashSans Regular", Helvetica, Arial, sans-serif;
+  --arcade-font-medium: "CashSans Medium", Helvetica, Arial, sans-serif;
+  --arcade-font-mono: "CashSans Mono Regular", monospace;
+  --arcade-font-mono-medium: "CashSans Mono Medium", monospace;
+}
+
+@mixin arcade-display-hero {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.07rem;
+}
+
+@mixin arcade-display-numeral-large {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+}
+
+@mixin arcade-display-numeral-small {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0;
+}
+
+@mixin arcade-display-headline-large {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.375rem;
+  letter-spacing: -0.04469rem;
+}
+
+@mixin arcade-display-headline-small {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: -0.025rem;
+}
+
+@mixin arcade-display-page-title {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: -0.015rem;
+}
+
+@mixin arcade-display-section-title {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  letter-spacing: -0.00563rem;
+}
+
+@mixin arcade-body-medium {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: -0.0025rem;
+}
+
+@mixin arcade-label-medium {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0;
+}
+
+@mixin arcade-link-medium {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.0625rem;
+}
+
+@mixin arcade-body-small {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 0.4375rem;
+  line-height: 0.625rem;
+  letter-spacing: -0.00109rem;
+}
+
+@mixin arcade-label-small {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.4375rem;
+  line-height: 0.625rem;
+  letter-spacing: 0.00109rem;
+}
+
+@mixin arcade-link-small {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.4375rem;
+  line-height: 0.625rem;
+  letter-spacing: 0.00109rem;
+  text-decoration: underline;
+  text-underline-offset: 0.0625rem;
+}
+
+@mixin arcade-detail-label-xsmall {
+  font-family: var(--arcade-font-mono-medium);
+  font-weight: 500;
+  font-size: 0.3125rem;
+  line-height: 0.5rem;
+  letter-spacing: 0.01875rem;
+}
+
+@mixin arcade-detail-body-xsmall {
+  font-family: var(--arcade-font-mono);
+  font-weight: 400;
+  font-size: 0.3125rem;
+  line-height: 0.5rem;
+  letter-spacing: 0.00938rem;
+}
+
+@mixin arcade-detail-link-xsmall {
+  font-family: var(--arcade-font-mono-medium);
+  font-weight: 500;
+  font-size: 0.3125rem;
+  line-height: 0.5rem;
+  letter-spacing: 0.0125rem;
+  text-decoration: underline;
+  text-underline-offset: 0.0625rem;
+}
+
+@mixin arcade-component-button {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0;
+}
+
+@mixin arcade-component-button-compact {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.4375rem;
+  line-height: 0.5rem;
+  letter-spacing: 0.00109rem;
+}
+
+@mixin arcade-component-input {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: -0.0025rem;
+}
+
+@mixin arcade-component-help-text {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 0.4375rem;
+  line-height: 0.625rem;
+  letter-spacing: -0.00109rem;
+}
+
+@mixin arcade-component-title-bar {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0;
+}
+
+@mixin arcade-component-card-title-large {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  letter-spacing: -0.00563rem;
+}
+
+@mixin arcade-component-card-title-small {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.5rem;
+  line-height: 0.5rem;
+  letter-spacing: 0;
+}
+
+@mixin arcade-component-list-number {
+  font-family: var(--arcade-font-medium);
+  font-weight: 500;
+  font-size: 0.4375rem;
+  line-height: 0.625rem;
+  letter-spacing: 0.00109rem;
+}
+
+@mixin arcade-component-badge-large {
+  font-family: var(--arcade-font-regular);
+  font-weight: 400;
+  font-size: 0.34375rem;
+  line-height: 0.5rem;
+  letter-spacing: -0.00109rem;
+}

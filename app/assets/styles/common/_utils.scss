@@ -1,0 +1,57 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg1);
+  box-shadow: inset 0 0 0 2px var(--bg0);
+  border: 1px solid var(--bg0);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg2);
+  box-shadow: inset 0 0 0 1px var(--bg0);
+}
+
+.hide {
+  &-desktop {
+    display: none;
+  }
+
+  &-mobile {
+    display: block;
+  }
+
+  &-phone {
+    display: block;
+  }
+}
+
+@media only screen and (max-width : 800px) {
+  .hide {
+    &-desktop { display: block; }
+    &-mobile { display: none; }
+    &-phone { display: block; }
+  }
+}
+
+@media only screen and (max-width : 580px) {
+  .hide {
+    &-desktop {
+      display: block;
+    }
+
+    &-mobile {
+      display: block;
+    }
+
+    &-phone {
+      display: none;
+    }
+  }
+}

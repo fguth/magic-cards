@@ -1,0 +1,39 @@
+:root {
+  // Brand
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #666666;
+
+  --subtle: #F0F0F0;
+  --standard: #E8E8E8;
+  --proeminent: #CCCCCC;
+ 
+  --green: #00E013;
+
+  --text-dark-primary: var(--black);
+  --text-dark-secondary: var(--gray);
+  --text-dark-tertiary: var(--proeminent);
+  --text-light-primary: var(--white);
+  --text-light-secondary: var(--proeminent);
+  --text-light-tertiary: var(--subtle);
+
+  --fade: linear-gradient(0deg, var(--bg0) 0%, transparent 100%);
+  --gradient: linear-gradient(45deg, var(--down) 0%, var(--up) 100%);
+
+  // UI
+  --header-height: 2.25rem;
+  --slot-machine-letter-spacing: -0.3rem;
+
+  // Border radius
+  --radius: 0.25rem;
+
+  //Easing transitions
+  --ease-default: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0.1, 0.9, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  --standard-spring: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  --panel-duration: 0.56s;
+  --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

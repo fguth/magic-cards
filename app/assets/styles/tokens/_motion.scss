@@ -1,0 +1,21 @@
+:root {
+  --arcade-duration-instant: 100ms;
+  --arcade-duration-fast: 150ms;
+  --arcade-duration-normal: 200ms;
+  --arcade-duration-slow: 350ms;
+  --arcade-duration-slower: 500ms;
+
+  --arcade-ease-default: cubic-bezier(0.2, 0, 0, 1);
+  --arcade-ease-in: cubic-bezier(0.3, 0, 1, 1);
+  --arcade-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --arcade-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --arcade-spring-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --arcade-spring-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --arcade-transition-fade: opacity var(--arcade-duration-normal) var(--arcade-ease-default);
+  --arcade-transition-scale: transform var(--arcade-duration-normal) var(--arcade-ease-default);
+  --arcade-transition-slide: transform var(--arcade-duration-slow) var(--arcade-spring-smooth);
+  --arcade-transition-color: background-color var(--arcade-duration-fast) var(--arcade-ease-default),
+    color var(--arcade-duration-fast) var(--arcade-ease-default);
+}

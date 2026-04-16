@@ -1,0 +1,87 @@
+:root {
+  --arcade-black: #000000;
+  --arcade-white: #ffffff;
+  --arcade-brand: #00e013;
+
+  --arcade-text-standard: #000000;
+  --arcade-text-prominent: #101010;
+  --arcade-text-subtle: #666666;
+  --arcade-text-placeholder: #666666;
+  --arcade-text-disabled: #959595;
+  --arcade-text-inverse: #ffffff;
+  --arcade-text-danger: #d3040e;
+  --arcade-text-warning: #cc4b03;
+  --arcade-text-success: #00792c;
+  --arcade-text-link: #000000;
+  --arcade-text-link-visited: #660199;
+  --arcade-text-brand: #00e013;
+
+  --arcade-icon-standard: #000000;
+  --arcade-icon-prominent: #101010;
+  --arcade-icon-subtle: #959595;
+  --arcade-icon-disabled: #959595;
+  --arcade-icon-inverse: #ffffff;
+  --arcade-icon-danger: #d3040e;
+  --arcade-icon-warning: #cc4b03;
+  --arcade-icon-success: #00792c;
+  --arcade-icon-brand: #00e013;
+
+  --arcade-bg-app: #ffffff;
+  --arcade-bg-subtle: #f0f0f0;
+  --arcade-bg-standard: #e8e8e8;
+  --arcade-bg-prominent: #cccccc;
+  --arcade-bg-extra-prominent: #959595;
+  --arcade-bg-inverse: #000000;
+  --arcade-bg-inverse-pressed: #666666;
+  --arcade-bg-danger: #d3040e;
+  --arcade-bg-notification: #d7040e;
+  --arcade-bg-warning: #cc4b03;
+  --arcade-bg-brand: #00e013;
+  --arcade-bg-keypad: #00e013;
+
+  --arcade-border-subtle: #e8e8e8;
+  --arcade-border-standard: #959595;
+  --arcade-border-prominent: #101010;
+  --arcade-border-inverse: #ffffff;
+  --arcade-border-app: #ffffff;
+  --arcade-border-danger: #d3040e;
+  --arcade-border-warning: #cc4b03;
+  --arcade-border-success: #00792c;
+  --arcade-border-brand: #00e013;
+
+  --arcade-data-trend-positive: #00e013;
+  --arcade-data-trend-negative: #000000;
+  --arcade-data-portion-full: #00e013;
+  --arcade-data-portion-empty: #f0f0f0;
+}
+
+[data-arcade-theme="dark"] {
+  --arcade-text-standard: #ffffff;
+  --arcade-text-prominent: #f0f0f0;
+  --arcade-text-subtle: #959595;
+  --arcade-text-placeholder: #959595;
+  --arcade-text-inverse: #000000;
+  --arcade-text-link: #ffffff;
+
+  --arcade-icon-standard: #ffffff;
+  --arcade-icon-prominent: #f0f0f0;
+  --arcade-icon-subtle: #666666;
+  --arcade-icon-inverse: #000000;
+
+  --arcade-bg-app: #000000;
+  --arcade-bg-subtle: #1c1c1e;
+  --arcade-bg-standard: #2c2c2e;
+  --arcade-bg-prominent: #3a3a3c;
+  --arcade-bg-extra-prominent: #636366;
+  --arcade-bg-inverse: #ffffff;
+  --arcade-bg-inverse-pressed: #cccccc;
+
+  --arcade-border-subtle: rgba(255, 255, 255, 0.08);
+  --arcade-border-standard: rgba(255, 255, 255, 0.2);
+  --arcade-border-prominent: #ffffff;
+  --arcade-border-inverse: #000000;
+  --arcade-border-app: #000000;
+
+  --arcade-data-trend-negative: #ffffff;
+  --arcade-data-portion-empty: #2c2c2e;
+}
