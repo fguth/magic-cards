@@ -1,0 +1,13 @@
+---
+description: Do not manually import Vue components or helpers; Nuxt auto-imports them.
+alwaysApply: true
+---
+
+Nuxt auto-imports components from `app/components/**` and composables from `app/composables/**`, plus Vue reactivity helpers (`ref`, `computed`, `watch`, `onMounted`, etc.).
+
+Do not write `import SomeComponent from '~/components/...'` or `import { ref } from 'vue'` in `<script setup>` blocks.
+
+Only import:
+- Types (`import type { ... }`)
+- Third-party libraries
+- Modules that are genuinely not auto-registered

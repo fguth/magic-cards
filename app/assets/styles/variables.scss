@@ -36,4 +36,11 @@
 
   --panel-duration: 0.56s;
   --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  // Shell motion
+  --shell-ease-morph-in: var(--arcade-spring-soft);
+  --shell-ease-morph-out: var(--arcade-spring-medium);
+  --shell-ease-swipe: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --shell-duration-morph: 440ms;
+  --shell-duration-swipe: 320ms;
 }

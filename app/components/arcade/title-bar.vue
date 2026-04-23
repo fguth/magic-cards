@@ -66,12 +66,14 @@ const hasMultipleActions = computed(() => props.actions.length > 1)
     <div v-if="variant === 'default'" class="arcade-title-bar__bg" />
 
     <div class="arcade-title-bar__content">
-      <ArcadeButtonGlass
-        :icon="leadingIconName"
-        :theme="theme"
-        :aria-label="type === 'child' ? 'Back' : 'Close'"
-        @click="onLeadingClick"
-      />
+      <slot name="leading">
+        <ButtonGlass
+          :icon="leadingIconName"
+          :theme="theme"
+          :aria-label="type === 'child' ? 'Back' : 'Close'"
+          @click="onLeadingClick"
+        />
+      </slot>
 
       <span
         v-if="showTitle && title"
@@ -80,33 +82,35 @@ const hasMultipleActions = computed(() => props.actions.length > 1)
         {{ title }}
       </span>
 
-      <ArcadeButtonGlass
-        v-if="hasSingleAction"
-        :icon="actions[0]"
-        :theme="theme"
-        :aria-label="actions[0]"
-        @click="emit('action', actions[0])"
-      />
+      <slot name="trailing">
+        <ButtonGlass
+          v-if="hasSingleAction"
+          :icon="actions[0]"
+          :theme="theme"
+          :aria-label="actions[0]"
+          @click="emit('action', actions[0])"
+        />
 
-      <div v-else-if="hasMultipleActions" class="arcade-title-bar__actions" :style="cssVars">
-        <div class="arcade-title-bar__actions-blur-wrap">
-          <div class="arcade-title-bar__actions-blur" />
+        <div v-else-if="hasMultipleActions" class="arcade-title-bar__actions" :style="cssVars">
+          <div class="arcade-title-bar__actions-blur-wrap">
+            <div class="arcade-title-bar__actions-blur" />
+          </div>
+          <div class="arcade-title-bar__actions-fill" />
+          <div class="arcade-title-bar__actions-inner">
+            <button
+              v-for="action in actions"
+              :key="action"
+              class="arcade-title-bar__action-btn"
+              :aria-label="action"
+              @click="emit('action', action)"
+            >
+              <span class="arcade-title-bar__action-icon" v-html="getNavIcon(action)" />
+            </button>
+          </div>
         </div>
-        <div class="arcade-title-bar__actions-fill" />
-        <div class="arcade-title-bar__actions-inner">
-          <button
-            v-for="action in actions"
-            :key="action"
-            class="arcade-title-bar__action-btn"
-            :aria-label="action"
-            @click="emit('action', action)"
-          >
-            <span class="arcade-title-bar__action-icon" v-html="getNavIcon(action)" />
-          </button>
-        </div>
-      </div>
 
-      <div v-else class="arcade-title-bar__spacer" />
+        <div v-else class="arcade-title-bar__spacer" />
+      </slot>
     </div>
   </div>
 </template>

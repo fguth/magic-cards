@@ -124,8 +124,15 @@ function buildCssVars(c: GlassConfig, t: GlassThemeVars): Record<string, string>
 }
 
 export function useGlassConfig() {
-  const theme = useState<GlassTheme>('glass-theme', () => 'dark')
-  const config = useState<GlassConfig>('glass-config', () => ({ ...glassThemeDefaults.dark }))
+  const theme = useState<GlassTheme>('glass-theme', () => 'light')
+  const config = useState<GlassConfig>('glass-config', () => ({ ...glassThemeDefaults[theme.value] }))
+  const isConfigSyncedToTheme = useState<boolean>('glass-config-synced', () => true)
+
+  watch(theme, (nextTheme, prevTheme) => {
+    if (nextTheme === prevTheme) return
+    if (!isConfigSyncedToTheme.value) return
+    config.value = { ...glassThemeDefaults[nextTheme] }
+  })
 
   const cssVars = computed(() => buildCssVars(config.value, themeVarSets[theme.value]))
 
@@ -136,14 +143,17 @@ export function useGlassConfig() {
   function setTheme(newTheme: GlassTheme): void {
     theme.value = newTheme
     config.value = { ...glassThemeDefaults[newTheme] }
+    isConfigSyncedToTheme.value = true
   }
 
   function update<K extends keyof GlassConfig>(key: K, value: GlassConfig[K]): void {
     config.value = { ...config.value, [key]: value }
+    isConfigSyncedToTheme.value = false
   }
 
   function reset(): void {
     config.value = { ...glassThemeDefaults[theme.value] }
+    isConfigSyncedToTheme.value = true
   }
 
   return { theme, config, cssVars, cssVarsFor, setTheme, update, reset }

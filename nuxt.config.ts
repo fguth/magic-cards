@@ -21,9 +21,22 @@ export default defineNuxtConfig({
 
   css: ['@/assets/styles/index.scss', '@/assets/styles/variables.scss'],
 
+  components: [
+    { path: '~/components/arcade', pathPrefix: false },
+    { path: '~/components/shell', pathPrefix: false },
+    { path: '~/components/charts', pathPrefix: false },
+    { path: '~/components/screens', pathPrefix: false },
+  ],
+
   imports: {
     dirs: [
       '~/composables'
     ]
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: ['vue-chartjs', 'chart.js']
+    }
   }
 })

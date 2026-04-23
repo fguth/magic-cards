@@ -1,7 +1,7 @@
 export type ArcadeTheme = 'dark' | 'light'
 
 export function useArcadeTheme() {
-  const theme = useState<ArcadeTheme>('glass-theme', () => 'dark')
+  const theme = useState<ArcadeTheme>('glass-theme', () => 'light')
   const isDark = computed(() => theme.value === 'dark')
 
   function applyToDocument() {

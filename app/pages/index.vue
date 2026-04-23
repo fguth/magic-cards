@@ -2,10 +2,18 @@
 defineOptions({ name: 'IndexPage' })
 
 const { isDark, theme, toggleTheme } = useArcadeTheme()
+const { isGridView, gridMotionPhase } = useAppNavigation()
 </script>
 
 <template>
-  <main class="page-root" :class="{ 'page-root--dark': isDark }">
+  <main
+    class="page-root"
+    :class="{
+      'page-root--dark': isDark,
+      'page-root--grid': isGridView,
+      'page-root--exiting-grid': gridMotionPhase === 'exiting',
+    }"
+  >
     <div class="controls-panel">
       <button
         class="theme-toggle"
@@ -17,9 +25,11 @@ const { isDark, theme, toggleTheme } = useArcadeTheme()
       </button>
     </div>
 
-    <div class="page-stage">
-      <div class="device-frame">
-        <div class="device-screen" :class="{ 'device-screen--dark': isDark }" />
+    <div class="page-stage" :class="{ 'page-stage--grid': isGridView }">
+      <div class="device-frame" :class="{ 'device-frame--grid': isGridView }">
+        <div class="device-screen" :class="{ 'device-screen--dark': isDark }">
+          <AppShell />
+        </div>
       </div>
     </div>
   </main>
@@ -33,10 +43,19 @@ const { isDark, theme, toggleTheme } = useArcadeTheme()
   background: linear-gradient(180deg, #f7f7f7 0%, #ebebeb 100%);
   transition: background-color 0.3s ease;
   --stage-gap: 1.5rem;
+  --shell-morph-duration-active: var(--shell-duration-morph);
+  --shell-morph-ease-active: var(--arcade-spring-smooth);
+  --shell-transform-duration-active: calc(var(--shell-morph-duration-active) + 40ms);
 }
 
 .page-root--dark {
   background: linear-gradient(180deg, #1c1c1e 0%, #000 100%);
+}
+
+.page-root--exiting-grid {
+  --shell-morph-duration-active: 620ms;
+  --shell-morph-ease-active: cubic-bezier(0.18, 0.72, 0, 1);
+  --shell-transform-duration-active: 680ms;
 }
 
 .controls-panel {
@@ -82,12 +101,19 @@ const { isDark, theme, toggleTheme } = useArcadeTheme()
 }
 
 .page-stage {
+  position: relative;
   min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   padding: var(--stage-gap);
+  perspective: 180rem;
+  transition: transform var(--shell-morph-duration-active) var(--shell-morph-ease-active);
+}
+
+.page-stage--grid {
+  transform: scale(0.985);
 }
 
 .device-frame {
@@ -104,6 +130,15 @@ const { isDark, theme, toggleTheme } = useArcadeTheme()
   border-radius: 1.65rem;
   background: linear-gradient(160deg, #161616 0%, #2b2b2b 35%, #0f0f0f 100%);
   box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.18), 0 0.125rem 0.5rem rgba(0, 0, 0, 0.12);
+  transform-origin: center center;
+  transition:
+    transform var(--shell-morph-duration-active) var(--shell-morph-ease-active),
+    box-shadow var(--shell-morph-duration-active) var(--arcade-ease-out);
+}
+
+.device-frame--grid {
+  transform: translateY(-0.08rem) rotateX(0.35deg);
+  box-shadow: 0 1.4rem 3.25rem rgba(0, 0, 0, 0.2), 0 0.18rem 0.75rem rgba(0, 0, 0, 0.12);
 }
 
 .device-frame::before {
@@ -138,11 +173,18 @@ const { isDark, theme, toggleTheme } = useArcadeTheme()
   background: var(--arcade-bg-subtle);
   isolation: isolate;
   font-size: calc(100cqi / 12.1875);
-  transition: background-color 0.3s ease;
+  transform-origin: center center;
+  transition:
+    background-color 0.3s ease,
+    transform var(--shell-morph-duration-active) var(--shell-morph-ease-active);
 }
 
 .device-screen--dark {
   background: var(--arcade-bg-app);
+}
+
+.page-root--grid .device-screen {
+  transform: scale(0.998);
 }
 
 .device-screen::after {
