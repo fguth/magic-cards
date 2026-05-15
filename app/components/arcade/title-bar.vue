@@ -53,6 +53,12 @@ function onLeadingClick() {
 const hasActions = computed(() => props.actions.length > 0)
 const hasSingleAction = computed(() => props.actions.length === 1)
 const hasMultipleActions = computed(() => props.actions.length > 1)
+const singleAction = computed(() => props.actions.length === 1 ? props.actions[0] ?? '' : '')
+
+function onSingleActionClick() {
+  if (!singleAction.value) return
+  emit('action', singleAction.value)
+}
 </script>
 
 <template>
@@ -85,10 +91,10 @@ const hasMultipleActions = computed(() => props.actions.length > 1)
       <slot name="trailing">
         <ButtonGlass
           v-if="hasSingleAction"
-          :icon="actions[0]"
+          :icon="singleAction"
           :theme="theme"
-          :aria-label="actions[0]"
-          @click="emit('action', actions[0])"
+          :aria-label="singleAction"
+          @click="onSingleActionClick"
         />
 
         <div v-else-if="hasMultipleActions" class="arcade-title-bar__actions" :style="cssVars">
@@ -178,6 +184,9 @@ const hasMultipleActions = computed(() => props.actions.length > 1)
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  background: var(--glass-blur-bg, rgba(0, 0, 0, 0.08));
+  backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
   box-shadow:
     0 0 1.25em rgba(0, 0, 0, 0.04),
     inset 0.015625rem 0.015625rem 0.0625rem var(--glass-inset-highlight, rgba(255, 255, 255, 0.15)),
@@ -196,8 +205,6 @@ const hasMultipleActions = computed(() => props.actions.length > 1)
   position: absolute;
   inset: 0.9375em 0.8125em 0.6875em 0.8125em;
   border-radius: 999px;
-  backdrop-filter: blur(1.25rem);
-  -webkit-backdrop-filter: blur(1.25rem);
   background: var(--glass-blur-bg, rgba(0, 0, 0, 0.08));
   filter: blur(0.625rem);
   mix-blend-mode: hard-light;

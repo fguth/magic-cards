@@ -104,13 +104,15 @@ function hexToRgb(hex: string): string {
 
 function buildCssVars(c: GlassConfig, t: GlassThemeVars): Record<string, string> {
   const rgb = hexToRgb(c.backgroundColor)
+  const background = `rgba(${rgb}, ${c.backgroundOpacity})`
+
   return {
-    '--glass-bg': `rgba(${rgb}, ${c.backgroundOpacity})`,
+    '--glass-bg': background,
     '--glass-blur': `${c.blur}px`,
     '--glass-saturation': `${c.saturation}`,
     '--glass-shadow-opacity': `${c.shadowOpacity}`,
     '--glass-border-opacity': `${c.borderOpacity}`,
-    '--glass-fill': t.fill,
+    '--glass-fill': `${t.fill}, ${background}`,
     '--glass-fill-opacity': `${t.fillOpacity}`,
     '--glass-overlay': t.overlay,
     '--glass-active-bg': t.activeBg,

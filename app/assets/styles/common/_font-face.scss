@@ -1,61 +1,44 @@
 @font-face {
-  font-family: "CashSans Regular";
+  font-family: "Aeonik Regular";
   src:
-    url("/assets/fonts/CashSans-Regular.woff2") format("woff2"),
-    url("/assets/fonts/CashSans-Regular.otf") format("opentype");
+    url("/assets/fonts/aeonik-regular.woff2") format("woff2"),
+    url("/assets/fonts/aeonik-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "CashSans Medium";
+  font-family: "Aeonik Medium";
   src:
-    url("/assets/fonts/CashSans-Medium.woff2") format("woff2"),
-    url("/assets/fonts/CashSans-Medium.otf") format("opentype");
+    url("/assets/fonts/aeonik-medium.woff2") format("woff2"),
+    url("/assets/fonts/aeonik-medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "CashSans Bold";
+  font-family: "Aeonik Bold";
   src:
-    url("/assets/fonts/CashSans-Bold.otf") format("opentype");
+    url("/assets/fonts/aeonik-bold.woff2") format("woff2"),
+    url("/assets/fonts/aeonik-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "CashSans Semibold";
+  font-family: "FFMark";
   src:
-    url("/assets/fonts/CashSans-Semibold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "CashSans Light";
-  src:
-    url("/assets/fonts/CashSans-Light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "CashSans Mono";
-  src:
-    url("/assets/fonts/CashSansMono-Regular.woff2") format("woff2"),
-    url("/assets/fonts/CashSansMono-Regular.otf") format("opentype");
-  font-weight: 400;
+    url("/assets/fonts/FFMarkProBold.woff2") format("woff2"),
+    url("/assets/fonts/FFMarkProBold.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 html {
-  font-family: "CashSans Regular", Helvetica, Arial, sans-serif;
+  font-family: "Aeonik Regular", Helvetica, Arial, sans-serif;
   color: var(--white);
 }

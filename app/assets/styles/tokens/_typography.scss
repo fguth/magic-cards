@@ -1,8 +1,10 @@
 :root {
-  --arcade-font-regular: "CashSans Regular", Helvetica, Arial, sans-serif;
-  --arcade-font-medium: "CashSans Medium", Helvetica, Arial, sans-serif;
-  --arcade-font-mono: "CashSans Mono Regular", monospace;
-  --arcade-font-mono-medium: "CashSans Mono Medium", monospace;
+  --arcade-font-regular: "Aeonik Regular", Helvetica, Arial, sans-serif;
+  --arcade-font-medium: "Aeonik Medium", Helvetica, Arial, sans-serif;
+  --arcade-font-bold: "Aeonik Bold", Helvetica, Arial, sans-serif;
+  --arcade-font-black: "FFMark", Helvetica, Arial, sans-serif;
+  --arcade-font-mono: var(--arcade-font-regular);
+  --arcade-font-mono-medium: var(--arcade-font-medium);
 }
 
 @mixin arcade-display-hero {
@@ -114,7 +116,7 @@
 }
 
 @mixin arcade-detail-label-xsmall {
-  font-family: var(--arcade-font-mono-medium);
+  font-family: var(--arcade-font-medium);
   font-weight: 500;
   font-size: 0.3125rem;
   line-height: 0.5rem;
@@ -122,7 +124,7 @@
 }
 
 @mixin arcade-detail-body-xsmall {
-  font-family: var(--arcade-font-mono);
+  font-family: var(--arcade-font-regular);
   font-weight: 400;
   font-size: 0.3125rem;
   line-height: 0.5rem;
@@ -130,7 +132,7 @@
 }
 
 @mixin arcade-detail-link-xsmall {
-  font-family: var(--arcade-font-mono-medium);
+  font-family: var(--arcade-font-medium);
   font-weight: 500;
   font-size: 0.3125rem;
   line-height: 0.5rem;

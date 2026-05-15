@@ -18,10 +18,10 @@ const { isGridView, gridMotionPhase } = useAppNavigation()
       <button
         class="theme-toggle"
         type="button"
-        :aria-label="`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`"
+        :aria-label="`Mudar para tema ${theme === 'dark' ? 'claro' : 'escuro'}`"
         @click="toggleTheme"
       >
-        {{ theme === 'dark' ? 'Light' : 'Dark' }}
+        {{ theme === 'dark' ? 'Claro' : 'Escuro' }}
       </button>
     </div>
 

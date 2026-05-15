@@ -69,7 +69,7 @@ onBeforeUnmount(() => {
             key="grid"
             class="app-top-nav__grid-button"
             icon="grid-view"
-            aria-label="Open grid view"
+            aria-label="Abrir visão em grade"
             @click="handleGridTap"
           />
           <ButtonGlass
@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
             key="back"
             class="app-top-nav__grid-button"
             icon="back"
-            aria-label="Close chat"
+            aria-label="Fechar conversa"
             @click="handleBackTap"
           />
         </Transition>

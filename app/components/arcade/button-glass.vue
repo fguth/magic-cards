@@ -67,10 +67,13 @@ function handleClick(event: MouseEvent) {
   justify-content: center;
   border: none;
   border-radius: 50%;
-  background: none;
+  background: var(--glass-blur-bg, rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
   cursor: pointer;
   padding: 0;
   color: #000;
+  isolation: isolate;
   box-shadow:
     0 0.125em 0.5em rgba(0, 0, 0, var(--glass-shadow-opacity, 0.45)),
     0 0.0625em 0.125em rgba(0, 0, 0, calc(var(--glass-shadow-opacity, 0.45) * 0.55)),
@@ -92,14 +95,13 @@ function handleClick(event: MouseEvent) {
   border-radius: 50%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 0;
 }
 
 .glass-btn__blur {
   position: absolute;
   inset: 0.46875rem 0.40625rem 0.34375rem 0.40625rem;
   border-radius: 50%;
-  backdrop-filter: blur(1.25rem);
-  -webkit-backdrop-filter: blur(1.25rem);
   background: var(--glass-blur-bg, rgba(0, 0, 0, 0.1));
   filter: blur(0.625rem);
   mix-blend-mode: hard-light;
@@ -112,6 +114,7 @@ function handleClick(event: MouseEvent) {
   opacity: var(--glass-fill-opacity, 0.67);
   pointer-events: none;
   background: var(--glass-fill);
+  z-index: 1;
 }
 
 .glass-btn::before {

@@ -10,7 +10,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const CHAT_PROMPT = 'What do you need me to do?'
+const CHAT_PROMPT = 'O que você quer que eu resolva?'
 
 const { isChatModeActive } = useAppNavigation()
 const isChatActive = computed(() => (props.profileId ? isChatModeActive(props.profileId) : false))
@@ -71,9 +71,10 @@ function sparklineLastPoint(values: number[]) {
   const height = 32
   const step = values.length > 1 ? width / (values.length - 1) : width
   const index = values.length - 1
+  const value = values[index] ?? min
   return {
     x: index * step,
-    y: height - ((values[index] - min) / range) * height,
+    y: height - ((value - min) / range) * height,
   }
 }
 </script>
@@ -106,7 +107,7 @@ function sparklineLastPoint(values: number[]) {
       <button
         type="button"
         class="feed-screen__balance-button"
-        :aria-label="isBalanceHidden ? 'Show total balance' : 'Hide total balance'"
+        :aria-label="isBalanceHidden ? 'Mostrar saldo total' : 'Ocultar saldo total'"
         @click="toggleBalance"
       >
         <FeedCard variant="pill" class="feed-screen__balance-card">
@@ -137,12 +138,12 @@ function sparklineLastPoint(values: number[]) {
 
       <FeedCard variant="hero" class="feed-screen__hero">
         <div class="feed-screen__hero-amount">
-          <span class="feed-screen__hero-currency">$</span>
+          <span class="feed-screen__hero-currency">{{ props.feed.balanceCurrency }}</span>
           <span class="feed-screen__hero-number">{{ props.feed.hero.amount }}</span>
         </div>
         <p class="feed-screen__hero-period">({{ props.feed.hero.period }})</p>
         <p v-if="props.feed.hero.note" class="feed-screen__hero-note">
-          - {{ props.feed.hero.note }}
+          {{ props.feed.hero.note }}
         </p>
       </FeedCard>
 
@@ -445,8 +446,9 @@ function sparklineLastPoint(values: number[]) {
 }
 
 .feed-screen__hero-currency {
-  font-size: 1.8em;
-  padding-top: 0.08em;
+  font-size: 0.95em;
+  padding-top: 0.24em;
+  letter-spacing: -0.02em;
 }
 
 .feed-screen__hero-number {

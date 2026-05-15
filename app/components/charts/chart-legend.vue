@@ -26,9 +26,11 @@ defineProps<ChartLegendProps>()
 .chart-legend {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
   gap: 0.5rem;
   font-family: var(--arcade-font-regular);
-  font-size: 0.375rem;
+  font-size: var(--chart-outer-legend-size, 0.5rem);
   line-height: 1;
   color: #111111;
 }
@@ -36,13 +38,14 @@ defineProps<ChartLegendProps>()
 .chart-legend__item {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
+  flex: 0 0 auto;
+  gap: 0.25rem;
 }
 
 .chart-legend__swatch {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 999px;
+  width: var(--chart-legend-swatch-size, 0.375rem);
+  height: var(--chart-legend-swatch-size, 0.375rem);
+  border-radius: 0;
   flex-shrink: 0;
 }
 

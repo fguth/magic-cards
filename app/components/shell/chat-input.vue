@@ -11,7 +11,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   isKeyboardOpen: false,
-  placeholder: 'What do you need?',
+  placeholder: 'O que você precisa?',
 })
 
 const emit = defineEmits<{
@@ -118,9 +118,6 @@ defineExpose({ blurInput, getIsEmpty, clearValue })
     :style="cssVars"
     @pointerdown="handleActivate"
   >
-    <div class="chat-input__blur-wrap">
-      <div class="chat-input__blur" />
-    </div>
     <div class="chat-input__fill" />
     <input
       ref="inputEl"
@@ -137,7 +134,7 @@ defineExpose({ blurInput, getIsEmpty, clearValue })
       v-if="hasValue"
       class="chat-input__action chat-input__action--send"
       type="button"
-      aria-label="Send message"
+      aria-label="Enviar mensagem"
       :tabindex="isGridView ? -1 : 0"
       @click="handleSend"
     >
@@ -147,7 +144,7 @@ defineExpose({ blurInput, getIsEmpty, clearValue })
       v-else
       class="chat-input__action chat-input__action--mic"
       type="button"
-      aria-label="Start voice input"
+      aria-label="Iniciar entrada por voz"
       :tabindex="isGridView ? -1 : 0"
       @click="handleMic"
     >
@@ -169,6 +166,9 @@ defineExpose({ blurInput, getIsEmpty, clearValue })
   height: 1.625em;
   border-radius: 999px;
   color: #000;
+  background: var(--glass-blur-bg, rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
   isolation: isolate;
   z-index: 7;
   transform: translate3d(0, 0, 0);
@@ -204,24 +204,6 @@ defineExpose({ blurInput, getIsEmpty, clearValue })
   transform: translate3d(0, 160%, 0);
   opacity: 0;
   pointer-events: none;
-}
-
-.chat-input__blur-wrap {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.chat-input__blur {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
-  -webkit-backdrop-filter: blur(var(--glass-blur, 8px)) saturate(var(--glass-saturation, 1.4));
-  background: var(--glass-blur-bg, rgba(255, 255, 255, 0.1));
 }
 
 .chat-input__fill {
