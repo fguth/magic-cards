@@ -282,6 +282,76 @@ const bankFlows = [
 
 const chartPeriod = 'Abril 2026'
 
+const cardTimeframes = {
+  'pie-single-category': '30 Abr 2026',
+  'pie-current-four-categories': 'Abril 2026',
+  'pie-tiny-vs-large': '12 Abr 2026',
+  'pie-balanced': 'Essa semana',
+  'pie-average-case': 'Abril 2026',
+  'pie-current-seven-categories': 'Abril 2026',
+  'pie-many-categories': '1 Jan—30 Abr 2026',
+
+  'line-two-point-rise': 'Abril 2026',
+  'line-two-point-fall': 'Abril 2026',
+  'line-tiny-values': '1—7 Abr 2026',
+  'line-flat-values': '1—7 Abr 2026',
+  'line-zig-zag': '1—10 Abr 2026',
+  'line-million-outlier': '1—11 Abr 2026',
+  'line-average-case': '1—14 Abr 2026',
+  'line-current-month': '1—20 Abr 2026',
+  'line-twenty-points': '1—20 Abr 2026',
+  'line-dense-month': 'Abril 2026',
+
+  'bar-single': '1 Abr 2026',
+  'bar-two-point-rise': 'Abril 2026',
+  'bar-two-point-fall': 'Abril 2026',
+  'bar-flat-values': '1—6 Abr 2026',
+  'bar-tiny-values': '1—7 Abr 2026',
+  'bar-million-outlier': '1—7 Abr 2026',
+  'bar-ten-days': '1—10 Abr 2026',
+  'bar-average-case': '1—14 Abr 2026',
+  'bar-current-month': '1—21 Abr 2026',
+  'bar-dense-month': 'Abril 2026',
+
+  'stack-positive-single': 'Abril 2026',
+  'stack-positive-six-sections': 'Abril 2026',
+  'stack-positive-average': 'Últimas 4 semanas',
+  'stack-positive-section-labels': '1—28 Abr 2026',
+  'stack-positive-balanced': 'Últimas 4 semanas',
+  'stack-positive-ten-days': '1—10 Abr 2026',
+  'stack-positive-dense': '1—20 Abr 2026',
+  'stack-mixed-single': 'Abril 2026',
+  'stack-mixed-six-sections': 'Abril 2026',
+  'stack-mixed-average': 'Últimas 4 semanas',
+  'stack-mixed-section-labels': '1—28 Abr 2026',
+  'stack-mixed-out-dominant': '1—8 Abr 2026',
+  'stack-mixed-sixteen-days': '1—16 Abr 2026',
+  'stack-mixed-symmetric': '1—20 Abr 2026',
+  'stack-mixed-dense': '1—20 Abr 2026',
+
+  'flow-single-in': 'Hoje',
+  'flow-single-out': 'Hoje',
+  'flow-tiny-huge': 'Abril 2026',
+  'flow-symmetric': 'Essa semana',
+  'flow-average-case': 'Abril 2026',
+  'flow-weekly': 'Últimas 4 semanas',
+  'flow-in-dominant': 'Abril 2026',
+  'flow-out-dominant': 'Abril 2026',
+  'flow-current-accounts': '1—21 Abr 2026',
+  'flow-dense-accounts': 'Abril 2026',
+
+  'table-two-pending': '30 Abr—8 Mai 2026',
+  'table-review-queue': 'Essa semana',
+  'table-scheduled-inflows': '10 Mai—10 Jun 2026',
+  'table-reconciliation': '1—5 Abr 2026',
+  'table-account-summary': 'Abril 2026',
+  'table-max-transactions': '1—10 Abr 2026',
+  'table-mixed-density': 'Hoje e amanhã',
+  'table-two-line-content': '1—20 Abr 2026',
+  'table-two-line-over-limit': '1—10 Abr 2026',
+  'table-six-column-long-headings': '1—5 Abr 2026',
+} as const satisfies Record<string, string>
+
 const accountCashFlowColumns = [
   { key: 'account', label: 'Conta', width: '54%' },
   { key: 'inflow', label: 'Entrada', align: 'right', width: '23%' },
@@ -339,7 +409,7 @@ const scheduledInflowRows = [
 const singleValueScenario = {
   title: 'Saldo disponível',
   titleSuperscript: '(R$)',
-  subtitle: chartPeriod,
+  subtitle: '30 Abr 2026',
   value: '79.037,56',
   note: 'Um dado único não vira tabela: aparece como item grande, direto e sem grade.',
 } as const
@@ -476,14 +546,14 @@ const tableStressScenarios = [
     key: 'table-two-pending',
     title: 'Pendências',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-two-pending'],
     columns: pendingPaymentColumns,
     rows: pendingPaymentRows,
   },
   {
     key: 'table-review-queue',
     title: 'Revisões abertas',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-review-queue'],
     columns: reviewColumns,
     rows: reviewRows,
   },
@@ -491,7 +561,7 @@ const tableStressScenarios = [
     key: 'table-scheduled-inflows',
     title: 'Entradas previstas',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-scheduled-inflows'],
     columns: scheduledInflowColumns,
     rows: scheduledInflowRows,
   },
@@ -499,7 +569,7 @@ const tableStressScenarios = [
     key: 'table-reconciliation',
     title: 'Conciliação',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-reconciliation'],
     columns: reconciliationColumns,
     rows: reconciliationRows,
   },
@@ -507,7 +577,7 @@ const tableStressScenarios = [
     key: 'table-account-summary',
     title: 'Resumo por conta',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-account-summary'],
     columns: accountCashFlowColumns,
     rows: accountCashFlowRows,
   },
@@ -515,14 +585,14 @@ const tableStressScenarios = [
     key: 'table-max-transactions',
     title: 'Transações recentes',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-max-transactions'],
     columns: maxTransactionColumns,
     rows: maxTransactionRows,
   },
   {
     key: 'table-mixed-density',
     title: 'Fechamento por área',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-mixed-density'],
     columns: mixedDensityColumns,
     rows: mixedDensityRows,
     maxRows: 8,
@@ -531,7 +601,7 @@ const tableStressScenarios = [
     key: 'table-two-line-content',
     title: 'Lançamentos com detalhe',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-two-line-content'],
     columns: longNoteColumns,
     rows: longNoteRows,
     maxRows: 7,
@@ -540,7 +610,7 @@ const tableStressScenarios = [
     key: 'table-two-line-over-limit',
     title: 'Lançamentos revisados',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-two-line-over-limit'],
     columns: longNoteColumns,
     rows: overLimitTwoLineRows,
     maxRows: 7,
@@ -549,7 +619,7 @@ const tableStressScenarios = [
     key: 'table-six-column-long-headings',
     title: 'Conciliação detalhada',
     titleSuperscript: '(R$)',
-    subtitle: chartPeriod,
+    subtitle: cardTimeframes['table-six-column-long-headings'],
     columns: detailedReconciliationColumns,
     rows: detailedReconciliationRows,
     maxRows: 5,
@@ -699,8 +769,12 @@ function pieLayoutForCount(count: number): PieStressLayout {
   return count <= 4 ? 'bottom-left' : 'split'
 }
 
-function scenarioTimeframe(scenario: { timeframe?: string }) {
-  return scenario.timeframe ?? chartPeriod
+function scenarioTimeframe(scenario: { key?: string; timeframe?: string }) {
+  if (scenario.timeframe) return scenario.timeframe
+  if (scenario.key && scenario.key in cardTimeframes) {
+    return cardTimeframes[scenario.key as keyof typeof cardTimeframes]
+  }
+  return chartPeriod
 }
 
 function minValueIndex(values: number[]) {
@@ -778,8 +852,6 @@ function pointLabelRule(pointCount: number) {
 
 const commonChartDocs = [
   'Card base: 600px por 600px, padding interno de 32px e raio de 24px.',
-  'Em telas menores, o card inteiro reduz por escala proporcional e mantém a proporção quadrada.',
-  'Layout da página: grupos usam 2 colunas; quando 2 colunas não cabem, viram 1 coluna.',
   'Área interna base: 536px de largura, header de 48px, canvas de 428px e footer de 12px.',
   'Espaços fixos: 32px entre header e canvas; 16px entre canvas e footer.',
   'Heading: título e subtítulo em Aeonik Medium 26px. Título em #111, y -6px; subtítulo em #8a8a8a, y 24px; superscript 14px.',
@@ -2096,7 +2168,7 @@ const flowStressScenarios = [
             <TableCard
               :title="scenario.title"
               :title-superscript="scenario.titleSuperscript"
-              :subtitle="scenario.subtitle"
+              :subtitle="scenarioTimeframe(scenario)"
               :columns="scenario.columns"
               :rows="scenario.rows"
               :footer-label="scenario.footerLabel"
